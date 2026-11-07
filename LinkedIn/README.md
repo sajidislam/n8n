@@ -52,6 +52,18 @@ Scheduling language in 1.1 and the web page uses **America/New_York**. `schedule
 
 Column definitions: [schema/linkedin_posts.md](schema/linkedin_posts.md). Credential names and which node uses them: [credentials.md](credentials.md).
 
+## AI install
+
+Start a new bot chat. In the prompt below, replace both `n8n.example.com` values with your own n8n URL, then paste it.
+
+```text
+I want the json from https://github.com/sajidislam/n8n/tree/main/LinkedIn installed in n8n.example.com. Can you open n8n (https://n8n.example.com/) here in your browser and I can login.
+```
+
+Sign in when the browser asks you to. If the bot sets up Gemini, LinkedIn, or Gmail, use n8n's credential form or the provider's OAuth screen. Do not paste API keys, tokens, or passwords into the chat or into this repo.
+
+One run imported the workflows from this folder and opened a secure credential popup. That did not show that posting to LinkedIn works, and it does not mean a bot will always finish credential setup. After the chat, still follow [Install](#install): the [`linkedin_posts` columns](schema/linkedin_posts.md), [credential attachment](credentials.md), and rebinding the caller nodes and error workflow. Leave **03-LinkedIn - Publish Due Posts** unpublished and disabled until you deliberately approve it to publish. The limits are in [Safety](#safety).
+
 ## Install
 
 Import into n8n, create the table, create credentials, then publish. Execute Workflow nodes and the error-workflow setting store the **source workflow ids**. A fresh import assigns new ids, so 1.1 and 08 must be pointed at the new 02, 04, and 05, and the error workflow must be re-selected.
